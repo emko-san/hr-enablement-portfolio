@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ page.description | default: site.description }}">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}"></head>
+<body>
+<header class="site"><div class="wrap">
+<a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+<nav aria-label="Main">
+{% assign items = "Home|/,Work samples|/work/,About|/about/,Contact|/contact/" | split: "," %}
+{% for i in items %}{% assign p = i | split: "|" %}<a href="{{ p[1] | relative_url }}"{% if page.url == p[1] %} aria-current="page"{% endif %}>{{ p[0] }}</a>{% endfor %}
+</nav></div></header>
+<main>{{ content }}</main>
+<footer class="site"><div class="wrap">&copy; {{ site.time | date: "%Y" }} {{ site.title }}. All samples use fictional companies and synthetic data.</div></footer>
+</body></html>

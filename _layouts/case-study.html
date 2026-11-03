@@ -1,0 +1,10 @@
+---
+layout: default
+---
+<article class="page"><div class="wrap prose">
+<p><a href="{{ '/work/' | relative_url }}">Back to work samples</a></p>
+<h1>{{ page.title }}</h1>
+<p class="meta">{{ page.summary }}</p>
+{% if page.tools %}<ul class="tags">{% for t in page.tools %}<li>{{ t }}</li>{% endfor %}</ul>{% endif %}
+{{ content }}
+</div></article>
